@@ -1,28 +1,29 @@
+#include "tree.h"
+#include "node.h"
 #include <iostream>
 #include <fstream>
 #include <algorithm>
 #include <vector>
-#include "tree.h"
-#include "node.h"
+
 
 
 using namespace std;
 
-struct node* buildTree(FILE *file){
+struct node* buildTrees(string filename) {
 
-    struct node* root = NULL;
-    ifstream inputFile;
+    struct node *root = NULL;
+
     string input;
+    fstream file;
+    file.open(filename.c_str());
 
-    inputFile.open(str);
-    while(inputFile >> input){
+    while (file >> input) {
         root = insertNode(input, root);
+
     }
-
-    inputFile.close();
-
     return root;
 }
+
 
 
 struct node * insertNode(string str, struct node* root){
@@ -32,6 +33,8 @@ struct node * insertNode(string str, struct node* root){
         root = new struct node;
         root -> label = newLabel;
         root -> data.push_back(str);
+        root->left = NULL;
+        root->right = NULL;
     }
     else if(newLabel == root->label){
         if(find(root->data.begin(),root->data.end(), str) == root->data.end()){
@@ -68,9 +71,9 @@ void printInorder(struct node* root,string inFile, int level = 0){
 
     nodeData = printVector(root->data);
     cout << nodeData;
-    printInorder(root->left, outFile,  level + 1);
+    printInorder(root->left, inFile,  level + 1);
     outFile << nodeData;
-    printInorder(root->right, outFile, level + 1);
+    printInorder(root->right, inFile, level + 1);
 
 
 }
@@ -82,11 +85,11 @@ void printPreorder(struct node* root, string inFile, int level = 0){
     ofstream outFile;
 
     outFile.open(inFile.append(".preorder"));
-
     nodeData = printVector(root->data);
     outFile << nodeData;
-    printPreorder(root->left, outFile,  level + 1);
-    printPreorder(root->right, outFile, level + 1);
+
+    printPreorder(root->left, inFile,  level + 1);
+    printPreorder(root->right, inFile, level + 1);
 }
 void printPostorder(struct node* root, string inFile, int level = 0){
     if(root == NULL) return;
@@ -98,7 +101,7 @@ void printPostorder(struct node* root, string inFile, int level = 0){
 
     outFile.open(inFile.append(".postorder"));
 
-    printPostorder(root->left, outFile,  level + 1);
-    printPostorder(root->right, outFile, level + 1);
+    printPostorder(root->left, inFile,  level + 1);
+    printPostorder(root->right, inFile, level + 1);
     outFile << nodeData;
 }

@@ -6,6 +6,7 @@
 #define P0_4280_NODE_H
 
 #include <vector>
+#include <string>
 
 using namespace std;
 

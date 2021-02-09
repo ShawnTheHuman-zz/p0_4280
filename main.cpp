@@ -13,7 +13,7 @@ int main(int argc, char** argv)
 
 
     string inputFile,input;
-
+    FILE *fp;
 
 
 
@@ -35,11 +35,11 @@ int main(int argc, char** argv)
 //        printInorder(root, temp,0);
 //        printPostorder(root, temp,0);
 //        printPreorder(root, temp,0);
-        FILE *fp;
+
 
         fp = stdin;
 
-        cout << fp << endl;
+        cout << &fp << endl;
 
     }
 
@@ -50,14 +50,15 @@ int main(int argc, char** argv)
 
         struct node *root = NULL;
         string infile = argv[1];
-        root = buildTree(infile);
+
+        root = buildTree(infile.c_str());
 
         ofstream out;
-        out.open(infile);
+        out.open(infile.c_str());
 
-        printInorder(root, out,0);
-        printPostorder(root, out,0);
-        printPreorder(root, out,0);
+        printInorder(root,infile,0);
+        printPostorder(root,infile,0);
+        printPreorder(root,infile,0);
     }
 
     else

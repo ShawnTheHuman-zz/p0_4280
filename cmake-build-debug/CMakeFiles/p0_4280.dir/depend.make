@@ -5,5 +5,7 @@ CMakeFiles/p0_4280.dir/main.cpp.obj: ../main.cpp
 CMakeFiles/p0_4280.dir/main.cpp.obj: ../node.h
 CMakeFiles/p0_4280.dir/main.cpp.obj: ../tree.h
 
+CMakeFiles/p0_4280.dir/tree.cpp.obj: ../node.h
 CMakeFiles/p0_4280.dir/tree.cpp.obj: ../tree.cpp
+CMakeFiles/p0_4280.dir/tree.cpp.obj: ../tree.h
 

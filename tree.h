@@ -8,14 +8,16 @@
 #include "node.h"
 #include <string>
 
-struct node* buildTree(FILE*);
+using namespace std;
+
+struct node* buildTree(string);
 struct node* insertNode(string, struct node*);
 
 string printVector(vector<string>);
 
-void printInorder(struct node*, ofstream&, int);
-void printPreorder(struct node*, ofstream&, int);
-void printPostorder(struct node*, ofstream&, int);
+void printInorder(struct node*,string, int);
+void printPreorder(struct node*,string, int);
+void printPostorder(struct node*,string, int);
 
 
 #endif //P0_4280_TREE_H
