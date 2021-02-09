@@ -10,15 +10,31 @@ using namespace std;
 
 int main(int argc, char** argv)
 {
+
+    string inputFile,input;
+
+
     cout << "Hello, World!" << endl;
     if (argc == 1)
     {
-        cout << "Hello, World!" << endl;
+        ofstream temp;
+
+        temp.open("output.sp2021");
+
+        while(cin >> input){
+            temp << input << endl;
+        }
+        temp.close();
+
+
+
     }
 
     else if (argc == 2)
     {
-        cout << "Hello, World!" << endl;
+        inputFile = argv[1];
+
+        printf("foundt a file dawg\n");
     }
 
     else
