@@ -11,30 +11,53 @@ using namespace std;
 int main(int argc, char** argv)
 {
 
+
     string inputFile,input;
 
 
-    cout << "Hello, World!" << endl;
+
+
     if (argc == 1)
     {
-        ofstream temp;
+//        ofstream temp;
+//
+//        temp.open("output.sp2021");
+//
+//        printf("Enter data through keyboard, CTRL+c to save and exit.\n");
+//
+//        while(cin >> input){
+//            temp << input << endl;
+//        }
+//        temp.close();
+//        struct node *root = NULL;
+//        root = buildTree("output.sp2021");
+//
+//        printInorder(root, temp,0);
+//        printPostorder(root, temp,0);
+//        printPreorder(root, temp,0);
+        FILE *fp;
 
-        temp.open("output.sp2021");
+        fp = stdin;
 
-        while(cin >> input){
-            temp << input << endl;
-        }
-        temp.close();
-
-
+        cout << fp << endl;
 
     }
 
     else if (argc == 2)
     {
-        inputFile = argv[1];
 
-        printf("foundt a file dawg\n");
+        printf("foundt a file dawg %s\n", argv[1]);
+
+        struct node *root = NULL;
+        string infile = argv[1];
+        root = buildTree(infile);
+
+        ofstream out;
+        out.open(infile);
+
+        printInorder(root, out,0);
+        printPostorder(root, out,0);
+        printPreorder(root, out,0);
     }
 
     else

@@ -5,12 +5,17 @@
 #ifndef P0_4280_TREE_H
 #define P0_4280_TREE_H
 
-node buildTree(string);
-node insertNode(string, node);
+#include "node.h"
+#include <string>
 
-void printInorder(node*, string);
-void printPreorder(node*, string);
-void printPostorder(node*, string);
+struct node* buildTree(FILE*);
+struct node* insertNode(string, struct node*);
+
+string printVector(vector<string>);
+
+void printInorder(struct node*, ofstream&, int);
+void printPreorder(struct node*, ofstream&, int);
+void printPostorder(struct node*, ofstream&, int);
 
 
 #endif //P0_4280_TREE_H

@@ -12,12 +12,8 @@ using namespace std;
 struct node {
     string label;
     vector<string> data;
-    struct node *left, *right;
-} Node;
-
-
-
-
+    node *right, *left;
+};
 
 
 #endif //P0_4280_NODE_H
