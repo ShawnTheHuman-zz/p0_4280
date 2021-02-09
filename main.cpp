@@ -48,7 +48,6 @@ int main(int argc, char** argv)
     else if (argc == 2)
     {
 
-        printf("foundt a file dawg %s\n", argv[1]);
 
         struct node *root = NULL;
         string infile = argv[1];
@@ -59,16 +58,23 @@ int main(int argc, char** argv)
 
 
         ofstream out;
-        out.open(infile.c_str());
+        if(out.is_open()) {
+            out.open(infile.c_str());
+            printInorder(root,infile,0);
+            printPostorder(root,infile,0);
+            printPreorder(root,infile,0);
+        }
+        else{
+            cout << "Error opening file.\n";
+            exit(0);
+        }
 
-        printInorder(root,infile,0);
-        printPostorder(root,infile,0);
-        printPreorder(root,infile,0);
+
     }
 
     else
     {
-        cout << "e r r r or  r r r r" << std::endl;
+        cout << "ERROR: too many arguments" << std::endl;
     }
 
     return 0;
