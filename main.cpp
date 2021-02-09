@@ -14,32 +14,34 @@ int main(int argc, char** argv)
 
     string inputFile,input;
     FILE *fp;
-
+    fstream in,pre,post;
 
 
     if (argc == 1)
     {
-//        ofstream temp;
-//
-//        temp.open("output.sp2021");
-//
-//        printf("Enter data through keyboard, CTRL+c to save and exit.\n");
-//
-//        while(cin >> input){
-//            temp << input << endl;
-//        }
-//        temp.close();
-//        struct node *root = NULL;
-//        root = buildTree("output.sp2021");
-//
-//        printInorder(root, temp,0);
-//        printPostorder(root, temp,0);
-//        printPreorder(root, temp,0);
+        ofstream temp, in, post, pre;
+
+        temp.open("output.sp2021");
+
+        printf("Enter data through keyboard, CTRL+c to save and exit.\n");
+
+        while(cin >> input){
+            temp << input << endl;
+        }
+        temp.close();
+        struct node *root = NULL;
+        root = buildTree("output.sp2021");
+        in.open("out.inorder");
+        pre.open("out.preorder");
+        post.open("out.postorder");
+        in.close();
+        pre.close();
+        post.close();
+        printInorder(root, "output.inorder",0);
+        printPostorder(root, "output.postorder",0);
+        printPreorder(root, "output.preorder",0);
 
 
-        fp = stdin;
-
-        cout << &fp << endl;
 
     }
 
@@ -52,6 +54,9 @@ int main(int argc, char** argv)
         string infile = argv[1];
 
         root = buildTree(infile.c_str());
+
+
+
 
         ofstream out;
         out.open(infile.c_str());

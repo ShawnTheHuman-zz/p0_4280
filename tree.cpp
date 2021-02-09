@@ -9,12 +9,13 @@
 
 using namespace std;
 
-struct node* buildTrees(string filename) {
+struct node* buildTree(string filename) {
 
     struct node *root = NULL;
 
     string input;
     fstream file;
+
     file.open(filename.c_str());
 
     while (file >> input) {
@@ -67,12 +68,12 @@ void printInorder(struct node* root,string inFile, int level = 0){
     string nodeData;
     ofstream outFile;
 
-    outFile.open(inFile.append(".inorder"));
+    outFile.open(inFile);
 
     nodeData = printVector(root->data);
     cout << nodeData;
     printInorder(root->left, inFile,  level + 1);
-    outFile << nodeData;
+    outFile << nodeData << endl << level;
     printInorder(root->right, inFile, level + 1);
 
 
@@ -84,9 +85,9 @@ void printPreorder(struct node* root, string inFile, int level = 0){
 
     ofstream outFile;
 
-    outFile.open(inFile.append(".preorder"));
-    nodeData = printVector(root->data);
-    outFile << nodeData;
+    outFile.open(inFile);
+    //nodeData = printVector(root->data);
+    outFile << printVector(root->data);
 
     printPreorder(root->left, inFile,  level + 1);
     printPreorder(root->right, inFile, level + 1);
@@ -99,7 +100,7 @@ void printPostorder(struct node* root, string inFile, int level = 0){
     nodeData = printVector(root->data);
     ofstream outFile;
 
-    outFile.open(inFile.append(".postorder"));
+    outFile.open(inFile);
 
     printPostorder(root->left, inFile,  level + 1);
     printPostorder(root->right, inFile, level + 1);

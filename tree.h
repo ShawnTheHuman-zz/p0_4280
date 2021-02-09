@@ -15,7 +15,7 @@ struct node* insertNode(string, struct node*);
 
 string printVector(vector<string>);
 
-void printInorder(struct node*,string, int);
+void printInorder(struct node*, string, int);
 void printPreorder(struct node*,string, int);
 void printPostorder(struct node*,string, int);
 

@@ -2,8 +2,9 @@ CC=g++
 TARGET=P0
 OBJS=main.o tree.o
 
+
 $(TARGET): $(OBJS)
-	$(CC) -o $(TARGET) $(OBJS) CXXFLAGS='-D_GLIBCXX_USE_CXX11_ABI=0'
+	$(CC) -o $(TARGET) $(OBJS)
 
 main.o:
 	$(CC) -c main.cpp
